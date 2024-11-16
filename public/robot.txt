@@ -1,0 +1,20 @@
+# robots.txt for Real Estate Plug
+
+# Allow all web crawlers to access all content
+User-agent: *
+Disallow:
+
+# Block specific private or temporary pages
+Disallow: /private/
+Disallow: /temp/
+Disallow: /admin/
+
+# Sitemap URL to help crawlers find your content
+Sitemap: https://yourwebsite.com/sitemap.xml
+
+# Crawl-delay to prevent server overload (optional, specify in seconds)
+Crawl-delay: 10
+
+# Block specific web crawlers (optional)
+User-agent: BadBot
+Disallow: /
