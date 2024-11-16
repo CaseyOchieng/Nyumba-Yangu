@@ -1,3 +1,7 @@
 export default function Signin() {
-  return <div>Signin</div>;
+  return (
+    <>
+      <h1>Home</h1>
+    </>
+  );
 }

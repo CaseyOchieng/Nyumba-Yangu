@@ -1,3 +1,7 @@
 export default function Profile() {
-  return <div>Profile</div>;
+  return (
+    <>
+      <h1>Home</h1>
+    </>
+  );
 }
