@@ -4,10 +4,10 @@ export default function Header() {
   return (
     <header className="bg-slate-200 shadow-md">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-4">
-        <Link to="/profile">
+        <Link to="/">
           <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
             <span className="text-slate-500">Real Estate</span>
-            <span className="text-slate-800">PlugPlug</span>
+            <span className="text-slate-800"> {"Plug"}Plug</span>
           </h1>
         </Link>
         {/* Other header content */}
@@ -27,7 +27,7 @@ export default function Header() {
         {/* Other header content */}
         <ul className="flex gap-4">
           <li className="hidden sm:inline text-slate-700 hover:text-slate-900 transition duration-200 ease-in-out">
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </li>
           <li className="hidden sm:inline text-slate-700 hover:text-slate-900 transition duration-200 ease-in-out">
             <Link to="/about">About</Link>
