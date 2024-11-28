@@ -3,7 +3,7 @@
 // enabling routing capabilities throughout the app.
 // The Routes component is used to define multiple route paths and their corresponding components.
 import { BrowserRouter, Route, Routes } from "react-router-dom"; // Import necessary components from react-router-dom
-import Header from "./components/Header";
+import Header from "./components/Header"; // Import Header component
 import About from "./pages/About"; // Import About component
 import Home from "./pages/Home"; // Import Home component
 import Profile from "./pages/Profile"; // Import Profile component

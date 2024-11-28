@@ -1,27 +1,41 @@
-# React + Vite
+# Real Estate Plug Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the client-side code for the Real Estate Plug application. The application is a property listing website where users can search and view properties. It also has a simple authentication system.
 
-## Table of Contents
+## Technologies Used
 
-- [React + Vite](#react--vite)
-  - [Table of Contents](#table-of-contents)
-  - [Features](#features)
-  - [How to use](#how-to-use)
-  - [Plugins Used](#plugins-used)
+- React
+- React Router
+- Tailwind CSS
+- Vite
 
-## Features
-
-- Fast Refresh with HMR
-- ESLint with recommended React configuration
-
-## How to use
+## Running the Application
 
 1. Clone the repository
-2. Run `npm install` to install the dependencies
-3. Run `npm run dev` to start the development server
+2. Install the dependencies with `npm install`
+3. Start the development server with `npm run dev`
 
-## Plugins Used
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- [react](https://github.com/vitejs/vite-plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Building the Application
+
+1. Run `npm run build` to build the application for production.
+2. The built application will be in the `dist` folder.
+
+## Deployment
+
+The application is deployed to Vercel.
+
+## Contributing
+
+Contributions are welcome! Please open a pull request to contribute.
+
+## License
+
+The application is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## Author
+
+- Name: Casey Ochieng
+- Email: [caseyochieng@gmail.com](mailto:caseyochieng@gmail.com)
+- GitHub: [caseyochieng](https://github.com/caseyochieng)

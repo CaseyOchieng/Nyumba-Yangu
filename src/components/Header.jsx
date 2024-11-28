@@ -6,8 +6,8 @@ export default function Header() {
       <div className="flex justify-between items-center max-w-6xl mx-auto p-4">
         <Link to="/">
           <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
-            <span className="text-slate-500">Real Estate</span>
-            <span className="text-slate-800"> {"Plug"}Plug</span>
+            <span className="text-slate-500">Real Estate </span>
+            <span className="text-slate-800"> {"Plug"}</span>
           </h1>
         </Link>
         {/* Other header content */}
