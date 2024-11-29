@@ -29,8 +29,8 @@ export default function SignUp() {
       return;
     }
 
-    if (formData.password.length < 8) {
-      setError("Password must be at least 8 characters long");
+    if (formData.password.length < 6) {
+      setError("Password must be at least 6 characters long");
       return;
     }
 
@@ -66,7 +66,7 @@ export default function SignUp() {
     <>
       <div className="flex flex-col p-3 max-w-lg items-center justify-center h-screen mx-auto ">
         <h1 className="text-2xl text-center font-bold my-7">
-          Sign <span className="">Up</span>
+          Register <span className="">📨</span>
         </h1>
         <form className="flex flex-col gap-4 w-full" onSubmit={handleSubmit}>
           <input
@@ -103,14 +103,17 @@ export default function SignUp() {
             className="bg-slate-600 text-white p-3 rounded-lg hover:bg-slate-800 transition duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
             type="submit"
           >
-            {loading ? "Loading..." : "Sign Up"}
+            {loading ? "Loading..." : "register"}
           </button>
         </form>
         <div className="my-7">
           <p>
             Already have an account?{" "}
-            <Link className="text-slate-600" to="/signin">
-              Sign In
+            <Link
+              className="text-slate-600 hover:underline transition duration-200 ease-in-out"
+              to="/signin"
+            >
+              Login
             </Link>
           </p>
         </div>
