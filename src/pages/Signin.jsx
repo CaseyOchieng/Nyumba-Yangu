@@ -25,17 +25,23 @@ export default function Signin() {
 
     if (!formData.email || !formData.password) {
       dispatch(SignInFailure("All fields are required"));
+      setError("All fields are required");
+      setLoading(false);
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       dispatch(SignInFailure("Please enter a valid email address"));
+      setError("Please enter a valid email address");
+      setLoading(false);
       return;
     }
 
-    if (formData.password.length < 6) {
-      dispatch(SignInFailure("Password must be at least 6 characters long"));
+    if (formData.password.length < 8) {
+      dispatch(SignInFailure("Password must be at least 8 characters long"));
+      setError("Password must be at least 6 characters long");
+      setLoading(false);
       return;
     }
 
@@ -57,6 +63,7 @@ export default function Signin() {
         // Dispatch SignInFailure with error message
         dispatch(SignInFailure(data.message || "Something went wrong"));
         setError(data.message);
+        setLoading(false);
         return;
       }
 
