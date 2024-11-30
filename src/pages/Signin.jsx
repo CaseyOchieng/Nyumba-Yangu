@@ -1,12 +1,18 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-
+import {
+  SignInFailure,
+  SignInStart,
+  SignInSuccess,
+} from "../redux/user/userSlice.js";
 export default function Signin() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const dispatch = useDispatch();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -18,23 +24,23 @@ export default function Signin() {
     e.preventDefault();
 
     if (!formData.email || !formData.password) {
-      setError("All fields are required");
+      dispatch(SignInFailure("All fields are required"));
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      setError("Please enter a valid email address");
+      dispatch(SignInFailure("Please enter a valid email address"));
       return;
     }
 
     if (formData.password.length < 6) {
-      setError("Password must be at least 6 characters long");
+      dispatch(SignInFailure("Password must be at least 6 characters long"));
       return;
     }
 
-    setLoading(true);
-    setError(null);
+    // Dispatch SignInStart action before API call
+    dispatch(SignInStart());
 
     try {
       const response = await fetch("/api/auth/signin", {
@@ -48,16 +54,23 @@ export default function Signin() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || "Something went wrong");
+        // Dispatch SignInFailure with error message
+        dispatch(SignInFailure(data.message || "Something went wrong"));
+        setError(data.message);
+        return;
       }
 
       if (data.success) {
+        // Dispatch SignInSuccess with user data
+        dispatch(SignInSuccess(data.user)); // Assuming the API returns user data
         navigate("/");
       }
     } catch (error) {
-      setError(error.message || "Something went wrong during signup");
-    } finally {
-      setLoading(false);
+      // Dispatch SignInFailure with error message
+      dispatch(
+        SignInFailure(error.message || "Something went wrong during signin")
+      );
+      setError(error.message);
     }
   };
 
@@ -106,7 +119,7 @@ export default function Signin() {
             </Link>
           </p>
         </div>
-        {error && <p className="text-red-500 text-center mt-5">{error}</p>}
+        {error && <p className="text-red-500 text-center ">{error}</p>}
       </div>
     </>
   );
