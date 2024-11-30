@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
+import persistStore from "redux-persist/es/persistStore";
 import storage from "redux-persist/lib/storage";
 import userReducer from "./user/userSlice.js";
 
@@ -24,3 +25,4 @@ export const store = configureStore({
 });
 
 export default store;
+export const persistor = persistStore(store);
