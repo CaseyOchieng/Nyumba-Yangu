@@ -1,6 +1,9 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useDispatch } from "react-redux";
 import { app } from "../firebase";
+import { SignInSuccess } from "../redux/user/userSlice.js";
 export default function OAuth() {
+  const dispatch = useDispatch();
   const handleGoogleClick = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -9,7 +12,21 @@ export default function OAuth() {
       // making a popup from google
       const result = await signInWithPopup(auth, provider);
 
-      console.log(result.user);
+      const res = await fetch("/api/auth/google", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: result.user.displayName,
+          email: result.user.email,
+          photo: result.user.photoURL,
+        }),
+      });
+      const data = await res.json();
+      //use dispatch to set the user in the store
+      dispatch(SignInSuccess(data));
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
