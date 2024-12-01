@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import OAuth from "../components/OAuth.jsx";
 import {
   SignInFailure,
   SignInStart,
@@ -114,6 +115,8 @@ export default function Signin() {
           >
             {loading ? "Loading..." : "Login"}
           </button>
+          {/* Google Signin */}
+          <OAuth />
         </form>
         <div className="my-7">
           <p>

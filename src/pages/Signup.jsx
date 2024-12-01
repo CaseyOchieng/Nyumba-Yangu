@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import OAuth from "../components/OAuth";
 export default function SignUp() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -104,6 +105,10 @@ export default function SignUp() {
           >
             {loading ? "Loading..." : "register"}
           </button>
+
+          {/* Google SignUp */}
+          <OAuth />
+          {/* Google SignUp */}
         </form>
         <div className="my-7">
           <p>
