@@ -86,7 +86,7 @@ export default function Signin() {
     <>
       <div className="flex flex-col p-3 max-w-lg items-center justify-center h-screen mx-auto  ">
         <h1 className="text-2xl text-center font-bold my-7">
-          Login <span className="">🗿</span>
+          Login <span className="">🔖</span>
         </h1>
         <form className="flex flex-col gap-4 w-full " onSubmit={handleSubmit}>
           <input

@@ -1,9 +1,13 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import { app } from "../firebase";
+import { useNavigate } from "react-router-dom";
+import { app } from "../firebase.js";
 import { SignInSuccess } from "../redux/user/userSlice.js";
+
 export default function OAuth() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleGoogleClick = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -11,24 +15,25 @@ export default function OAuth() {
 
       // making a popup from google
       const result = await signInWithPopup(auth, provider);
-
-      const res = await fetch("/api/auth/google", {
+      // sending the user info to the backend.
+      const response = await fetch("/api/auth/google", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: result.user.displayName,
+          username: result.user.displayName,
           email: result.user.email,
           photo: result.user.photoURL,
         }),
       });
-      const data = await res.json();
+      const data = await response.json();
       //use dispatch to set the user in the store
       dispatch(SignInSuccess(data));
-      console.log(data);
+      // redirecting to the home page
+      navigate("/");
     } catch (error) {
-      console.log(error);
+      console.error("Error during Google sign-in:", error.message, error.code);
     }
   };
 
