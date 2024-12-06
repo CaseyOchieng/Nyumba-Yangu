@@ -3,6 +3,7 @@
 // enabling routing capabilities throughout the app.
 // The Routes component is used to define multiple route paths and their corresponding components.
 import { BrowserRouter, Route, Routes } from "react-router-dom"; // Import necessary components from react-router-dom
+import PrivateRoute from "./components/PrivateRoute";
 import About from "./pages/About"; // Import About component
 import Home from "./pages/Home"; // Import Home component
 import Profile from "./pages/Profile"; // Import Profile component
@@ -18,14 +19,16 @@ export default function App() {
         {/* Each Route component maps a URL path to a component */}
         <Route path="/" element={<Home />} />{" "}
         {/* The root path renders the Home component */}
-        <Route path="/profile" element={<Profile />} />{" "}
         {/* The /profile path renders the Profile component */}
         <Route path="/about" element={<About />} />{" "}
         {/* The /about path renders the About component */}
         <Route path="/signin" element={<Signin />} />{" "}
         {/* The /signin path renders the Signin component */}
         <Route path="/signup" element={<SignUp />} />
-        {/* The /signup path renders the SigninUp component */}
+        {/* The Private Route component is used to protect routes that require authentication */}
+        <Route element={<PrivateRoute />}>
+          <Route path="/profile" element={<Profile />} />{" "}
+        </Route>
       </Routes>
     </BrowserRouter>
   );
