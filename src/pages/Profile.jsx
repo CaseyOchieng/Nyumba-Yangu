@@ -38,7 +38,7 @@ export default function Profile() {
             {/* Form fields */}
             <input
               className="border-2 border-slate-300 rounded-lg p-2 w-full mt-6 "
-              id="username"
+              id="password"
               type="text"
               placeholder="Password"
             />
