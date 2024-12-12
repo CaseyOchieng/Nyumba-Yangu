@@ -44,7 +44,7 @@ export default function Profile() {
             />
             {/* Submit button */}
             <button
-              className="bg-slate-700 text-white rounded-lg p-2 w-full mt-6 hover:bg-slate-900 transition duration-200 ease-in-out"
+              className="bg-slate-600 w-full mt-4  text-white p-3 rounded-lg hover:bg-slate-800 transition duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
               type="submit"
             >
               Update Profile
