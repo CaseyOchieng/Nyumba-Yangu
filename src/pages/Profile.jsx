@@ -49,7 +49,34 @@ export default function Profile() {
             >
               Update Profile
             </button>
+            {/* Cancel button */}
+            <button
+              className="bg-slate-600 w-full mt-4  text-white p-3 rounded-lg hover:bg-slate-800 transition duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+              type="submit"
+            >
+              Create Listings
+            </button>
           </form>
+
+          <div className="flex flex-row justify-between ">
+            {/* Delete account button */}
+            <button
+              className="bg-slate-600 w-full  mt-4  text-white p-3 rounded-lg hover:bg-red-800 transition duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+              type="submit"
+            >
+              Delete Account
+            </button>
+            {/* ----------------------------------- */}
+            <div className="flex flex-row justify-between m-2"></div>
+            {/* Logout button */}
+            <button
+              onClick={() => {}}
+              className="bg-slate-600 w-full mt-4  text-white p-3 rounded-lg hover:bg-blue-800 transition duration-200 ease-in-out"
+            >
+              Logout
+            </button>
+            {/* Delete account button */}
+          </div>
         </form>
       </div>
     </>

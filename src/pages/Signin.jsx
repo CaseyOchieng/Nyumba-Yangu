@@ -69,8 +69,8 @@ export default function Signin() {
       }
 
       if (data.success) {
-        // Dispatch SignInSuccess with user data
-        dispatch(SignInSuccess(data.user)); // Assuming the API returns user data
+        console.log('User data:', data.user);
+        dispatch(SignInSuccess(data.user));
         navigate("/");
       }
     } catch (error) {
